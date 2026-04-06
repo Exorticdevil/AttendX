@@ -22,8 +22,11 @@ app.use(morgan('dev'));
 // CORS Configuration
 app.use(cors({
   origin: function(origin, callback) {
-    const allowed = (process.env.CLIENT_URL || 'http://localhost:3000').replace(/\/$/, '');
-    if (!origin || origin === allowed) {
+    const allowed = [
+      'https://attend-x-delta.vercel.app',
+      'http://localhost:3000'
+    ];
+    if (!origin || allowed.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
