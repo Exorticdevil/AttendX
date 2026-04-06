@@ -10,8 +10,7 @@ const STUDENT_NAV = [
 ];
 
 const TEACHER_NAV = [
-  { href: '/teacher/dashboard', label: 'Dashboard', icon: '⊞' },
-  { href: '/teacher/subjects', label: 'My Subjects', icon: '📚' },
+  { href: '/teacher/dashboard', label: 'Dashboard', icon: '⊞' }
 ];
 
 export default function Sidebar() {
