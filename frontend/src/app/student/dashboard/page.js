@@ -71,20 +71,58 @@ export default function StudentDashboard() {
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar />
       <main style={{ flex: 1, padding: '32px', overflow: 'auto' }}>
+
         {/* Header */}
         <div className="animate-fade-up" style={{ marginBottom: 32 }}>
           <p style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 4 }}>
             {new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
           </p>
-          <h1 style={{
-            fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 800,
-            letterSpacing: '-0.02em', marginBottom: 6
-          }}>
-            Good {getGreeting()}, <span className="gradient-text">{student.name.split(' ')[0]}</span> 👋
-          </h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 15 }}>
-            {student.rollNumber} · {student.department} · Semester {student.semester}
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+            <div>
+              <h1 style={{
+                fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 800,
+                letterSpacing: '-0.02em', marginBottom: 6
+              }}>
+                Good {getGreeting()}, <span className="gradient-text">{student.name.split(' ')[0]}</span> 👋
+              </h1>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 15 }}>
+                {student.rollNumber} · {student.department} · Semester {student.semester}
+              </p>
+            </div>
+
+            {/* ✅ SCAN QR BUTTON */}
+            <button
+              onClick={() => router.push('/scan')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                padding: '14px 28px',
+                background: 'linear-gradient(135deg, #7c3aed, #14b8a6)',
+                border: 'none',
+                borderRadius: 14,
+                color: 'white',
+                fontSize: 15,
+                fontWeight: 700,
+                cursor: 'pointer',
+                boxShadow: '0 4px 24px rgba(124,58,237,0.35)',
+                transition: 'transform 0.15s, box-shadow 0.15s',
+                fontFamily: 'var(--font-display)',
+                letterSpacing: '-0.01em',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 32px rgba(124,58,237,0.5)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 24px rgba(124,58,237,0.35)';
+              }}
+            >
+              <span style={{ fontSize: 20 }}>📷</span>
+              Scan QR Code
+            </button>
+          </div>
         </div>
 
         {/* Summary stats */}
