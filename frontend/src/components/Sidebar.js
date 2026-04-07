@@ -1,6 +1,6 @@
 'use client';
 import { usePathname, useRouter } from 'next/navigation';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '@/context/AuthContext';
 
 const STUDENT_NAV = [
   { href: '/student/dashboard', label: 'Dashboard', icon: '⊞' },
